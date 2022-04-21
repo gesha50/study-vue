@@ -1,28 +1,57 @@
 <template>
   <div class="about">
+    <SearchBooks
+      :search-text="searchText"
+      @clean="clean"
+      @change-text="changeText"
+    ></SearchBooks>
     <h1>Список авторов</h1>
     <div class="list">
-      <div v-for="book in books" :key="book.id" class="card">
-        <div v-if="book.volumeInfo.authors.length > 1" class="card__text">
-          <div v-for="(author, i) in book.volumeInfo.authors" :key="i" class="">
-            {{ author }}
-          </div>
-        </div>
-        <div v-else class="">
-          <div class="">{{ book.volumeInfo.authors[0] }}</div>
-        </div>
+      <div v-for="(author, i) in filteredAuthors" :key="i" class="card">
+        {{ author }}
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import axios from "axios";
 import store from "@/store";
+import SearchBooks from "@/components/search/SearchBooks.vue";
+
+const searchText = ref("");
+
+getData();
 
 const books = computed(() => store.getters["getBooks"]);
-getData();
+const authors = computed(() => {
+  let arr = [];
+  books.value.forEach((book) => {
+    book.volumeInfo.authors.forEach((author) => {
+      arr.push(author);
+    });
+  });
+  return arr;
+});
+
+const filteredAuthors = computed(() => {
+  if (searchText.value.length) {
+    return authors.value.filter((author) => {
+      let str = author.toLowerCase();
+      return str.includes(searchText.value.toLowerCase());
+    });
+  }
+  return authors.value;
+});
+
+function clean() {
+  searchText.value = "";
+}
+
+function changeText(val) {
+  searchText.value = val;
+}
 
 function getData() {
   axios
