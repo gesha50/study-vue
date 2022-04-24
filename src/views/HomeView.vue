@@ -21,7 +21,6 @@ import SearchBooks from "@/components/search/SearchBooks.vue";
 import { computed, ref } from "vue";
 import store from "@/store";
 import axios from "axios";
-
 const searchText = ref("");
 const books = computed(() => store.getters["getBooks"]);
 function changeText(val) {
@@ -36,7 +35,6 @@ const filteredBooks = computed(() => {
   }
   return books.value;
 });
-
 function clean() {
   searchText.value = "";
 }
@@ -49,7 +47,6 @@ function getData() {
       store.dispatch("setBooks", response.data.items);
     });
 }
-
 // function auth() {
 //   axios
 //     .get("/sanctum/csrf-cookie")
