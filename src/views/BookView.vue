@@ -1,8 +1,7 @@
 <template>
   <div class="BookView">
-    <div class="">{{ getBook.volumeInfo.title }}</div>
-    <img :src="getBook.volumeInfo.imageLinks.thumbnail" />
-    <div class="">publish: {{ getBook.volumeInfo.publishedDate }}</div>
+    <div class="">{{ getBook.title }}</div>
+    <img :src="getBook.image" />
   </div>
 </template>
 
@@ -13,7 +12,7 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 const getBook = computed(() =>
-  store.getters["getBooks"].find((b) => b.id === route.params.id)
+  store.getters["getBooks"].find((b) => b.id.toString() === route.params.id)
 );
 </script>
 

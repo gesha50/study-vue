@@ -8,6 +8,16 @@ const routes = [
     component: HomeView,
   },
   {
+    path: "/book/:id",
+    name: "book",
+    component: () => import("../views/BookView.vue"),
+  },
+  {
+    path: "/book/add",
+    name: "book-add",
+    component: () => import("../views/BookAddView.vue"),
+  },
+  {
     path: "/authors",
     name: "authors",
     component: () => import("../views/AuthorsView.vue"),

@@ -1,5 +1,9 @@
 <template>
   <div class="home">
+    <q-btn color="blue-10" @click="getData">Получить список книг</q-btn>
+    <q-btn class="q-ml-lg" color="yellow-9" to="/book/add">
+      Добавить книгу
+    </q-btn>
     <SearchBooks
       :search-text="searchText"
       @clean="clean"
@@ -9,7 +13,7 @@
     <div class="list">
       <div v-for="book in filteredBooks" :key="book.id" class="card">
         <router-link class="card__link" :to="'/book/' + book.id">
-          <div class="card__text">{{ book.volumeInfo.title }}</div>
+          <div class="card__text">{{ book.title }}</div>
         </router-link>
       </div>
     </div>
@@ -29,7 +33,7 @@ function changeText(val) {
 const filteredBooks = computed(() => {
   if (searchText.value.length) {
     return books.value.filter((el) => {
-      let str = el.volumeInfo.title.toLowerCase();
+      let str = el.title.toLowerCase();
       return str.includes(searchText.value.toLowerCase());
     });
   }
@@ -58,7 +62,6 @@ function getData() {
 //     });
 // }
 // auth();
-getData();
 </script>
 
 <style scoped lang="scss">

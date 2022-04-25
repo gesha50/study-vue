@@ -12,13 +12,31 @@ export default createStore({
   },
   mutations: {
     setBooks(state, arr) {
-      console.log(state);
-      state.books = arr;
+      state.books = [];
+      arr.forEach((book, i) => {
+        let objBook = {
+          id: i,
+          title: book.volumeInfo.title,
+          ISBN: book.volumeInfo.etag,
+          author: book.volumeInfo.authors[0],
+          image: book.volumeInfo.imageLinks.thumbnail,
+          description: book.volumeInfo.description,
+          category: book.volumeInfo.category,
+          price: book.volumeInfo.ratingsCount,
+        };
+        state.books.push(objBook);
+      });
+    },
+    addBook(state, obj) {
+      state.books.push(obj);
     },
   },
   actions: {
     setBooks({ commit }, arr) {
       commit("setBooks", arr);
+    },
+    addBook({ commit }, obj) {
+      commit("addBook", obj);
     },
   },
   modules: {},
