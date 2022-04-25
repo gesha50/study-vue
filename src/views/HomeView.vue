@@ -10,7 +10,7 @@
       @change-text="changeText"
     ></SearchBooks>
     <h1>Книжная лавка</h1>
-    <div class="list">
+    <div class="list" data-test="book-list">
       <div v-for="book in filteredBooks" :key="book.id" class="card">
         <router-link class="card__link" :to="'/book/' + book.id">
           <div class="card__text">{{ book.title }}</div>
