@@ -27,14 +27,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import SearchBooks from "@/components/search/SearchBooks.vue";
 import { computed, ref } from "vue";
 import store from "@/store";
 import axios from "axios";
 const searchText = ref("");
 const books = computed(() => store.getters["getBooks"]);
-function changeText(val) {
+function changeText(val): void {
   searchText.value = val;
 }
 const filteredBooks = computed(() => {
@@ -46,10 +46,10 @@ const filteredBooks = computed(() => {
   }
   return books.value;
 });
-function clean() {
+function clean(): void {
   searchText.value = "";
 }
-function getData() {
+function getData(): void {
   axios
     .get(
       "https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=AIzaSyBX4sYCZZxiEAs2CTdbs7qsm0QqJLCU6mI"

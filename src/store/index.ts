@@ -1,9 +1,10 @@
 import { createStore } from "vuex";
 import createPersistedState from "vuex-persistedstate";
+import { BookObj } from "@/store/types/BookObj";
 
 export default createStore({
   state: {
-    books: [],
+    books: <BookObj[]>[],
   },
   getters: {
     getBooks(s) {
@@ -11,10 +12,10 @@ export default createStore({
     },
   },
   mutations: {
-    setBooks(state, arr) {
+    setBooks(state, arr: any[]) {
       state.books = [];
-      arr.forEach((book, i) => {
-        let objBook = {
+      arr.forEach((book: any, i) => {
+        const objBook: BookObj = {
           id: i,
           title: book.volumeInfo.title,
           ISBN: book.volumeInfo.etag,
@@ -27,15 +28,15 @@ export default createStore({
         state.books.push(objBook);
       });
     },
-    addBook(state, obj) {
+    addBook(state, obj: BookObj) {
       state.books.push(obj);
     },
   },
   actions: {
-    setBooks({ commit }, arr) {
+    setBooks({ commit }, arr: any[]) {
       commit("setBooks", arr);
     },
-    addBook({ commit }, obj) {
+    addBook({ commit }, obj: BookObj) {
       commit("addBook", obj);
     },
   },
