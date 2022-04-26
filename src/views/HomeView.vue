@@ -1,7 +1,14 @@
 <template>
   <div class="home">
-    <q-btn color="blue-10" @click="getData">Получить список книг</q-btn>
-    <q-btn class="q-ml-lg" color="yellow-9" to="/book/add">
+    <q-btn data-test="get-books" color="blue-10" @click="getData"
+      >Получить список книг</q-btn
+    >
+    <q-btn
+      data-test="home-page"
+      class="q-ml-lg"
+      color="yellow-9"
+      to="/book/add"
+    >
       Добавить книгу
     </q-btn>
     <SearchBooks
