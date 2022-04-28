@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <q-btn data-test="get-books" color="blue-10" @click="getData"
+    <q-btn data-test="get-books" color="blue-10" @click="booksFromServer"
       >Получить список книг</q-btn
     >
     <q-btn
@@ -31,7 +31,9 @@
 import SearchBooks from "@/components/search/SearchBooks.vue";
 import { computed, ref } from "vue";
 import store from "@/store";
-import axios from "axios";
+import getBook from "@/services/getBooks";
+
+const { booksFromServer } = getBook();
 const searchText = ref("");
 const books = computed(() => store.getters["getBooks"]);
 function changeText(val): void {
@@ -40,7 +42,7 @@ function changeText(val): void {
 const filteredBooks = computed(() => {
   if (searchText.value.length) {
     return books.value.filter((el) => {
-      let str = el.title.toLowerCase();
+      let str: string = el.title.toLowerCase();
       return str.includes(searchText.value.toLowerCase());
     });
   }
@@ -49,15 +51,7 @@ const filteredBooks = computed(() => {
 function clean(): void {
   searchText.value = "";
 }
-function getData(): void {
-  axios
-    .get(
-      "https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=AIzaSyBX4sYCZZxiEAs2CTdbs7qsm0QqJLCU6mI"
-    )
-    .then((response) => {
-      store.dispatch("setBooks", response.data.items);
-    });
-}
+
 // function auth() {
 //   axios
 //     .get("/sanctum/csrf-cookie")
