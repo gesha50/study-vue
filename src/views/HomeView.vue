@@ -16,7 +16,7 @@
       @clean="clean"
       @change-text="changeText"
     ></SearchBooks>
-    <h1>Книжная лавка</h1>
+    <h1 class="text-3xl font-bold underline">Книжная лавка</h1>
     <div class="list" data-test="book-list">
       <div v-for="book in filteredBooks" :key="book.id" class="card">
         <router-link class="card__link" :to="'/book/' + book.id">
@@ -35,7 +35,9 @@ import getBook from "@/services/getBooks";
 
 const { booksFromServer } = getBook();
 const searchText = ref("");
-const books = computed(() => store.getters["getBooks"]);
+let books = store.getters["getBooks"].length
+  ? ref(store.getters["getBooks"])
+  : ref([]);
 function changeText(val): void {
   searchText.value = val;
 }
@@ -65,24 +67,4 @@ function clean(): void {
 // auth();
 </script>
 
-<style scoped lang="scss">
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.card {
-  width: 33%;
-  background: honeydew;
-  margin-bottom: 12px;
-  &__link {
-    text-decoration: none;
-    &:hover {
-      color: #2c3e50;
-    }
-  }
-  &__text {
-    font-size: 18px;
-  }
-}
-</style>
+<style scoped lang="scss"></style>

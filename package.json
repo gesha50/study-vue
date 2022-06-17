@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "surge build",
+    "deploy": "surge build otus-app.surge.sh",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
@@ -39,6 +39,7 @@
     "@vue/eslint-config-typescript": "^9.1.0",
     "@vue/test-utils": "^2.0.0-0",
     "@vue/vue3-jest": "^27.0.0-alpha.1",
+    "autoprefixer": "^10.4.5",
     "babel-jest": "^27.0.6",
     "cypress": "^8.3.0",
     "eslint": "^7.32.0",
@@ -46,9 +47,11 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
     "jest": "^27.0.5",
+    "postcss": "^8.4.13",
     "prettier": "^2.4.1",
     "sass": "1.32.12",
     "sass-loader": "^12.0.0",
+    "tailwindcss": "^3.0.24",
     "ts-jest": "^27.0.4",
     "typescript": "~4.5.5",
     "vue-cli-plugin-quasar": "~5.0.1"

@@ -1,7 +1,8 @@
 <template>
   <div style="display: flex">
     <input
-      class=""
+      id="inputSearch"
+      class="outline hover:outline-dashed"
       type="text"
       name="waiterSearch"
       placeholder="search..."
@@ -10,6 +11,7 @@
     />
     <div
       v-if="searchText.length"
+      id="clean"
       style="margin-left: 5px; cursor: pointer"
       @click="$emit('clean')"
     >
