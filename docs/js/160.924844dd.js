@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunktest_vue"]=self["webpackChunktest_vue"]||[]).push([[160],{6160:function(t,s,e){e.r(s),e.d(s,{default:function(){return f}});var i=e(9269),n=e(3201),r=e(6237),u=e(3961),c=e(3485);const a={class:"BookView"},o={class:""},l=["src"];var d={setup(t){const s=(0,c.yj)(),e=(0,i.Fl)((()=>u.Z.getters.getBooks.find((t=>t.id.toString()===s.params.id))));return(t,s)=>((0,i.wg)(),(0,i.iD)("div",a,[(0,i._)("div",o,(0,n.zw)((0,r.SU)(e).title),1),(0,i._)("img",{src:(0,r.SU)(e).image},null,8,l)]))}};const v=d;var f=v}}]);
+//# sourceMappingURL=160.924844dd.js.map
