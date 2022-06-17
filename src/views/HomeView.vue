@@ -16,7 +16,7 @@
       @clean="clean"
       @change-text="changeText"
     ></SearchBooks>
-    <h1 class="text-3xl font-bold underline">Книжная лавка</h1>
+    <h1 class="text-3xl font-bold underline">Книги</h1>
     <div class="list" data-test="book-list">
       <div v-for="book in filteredBooks" :key="book.id" class="card">
         <router-link class="card__link" :to="'/book/' + book.id">
