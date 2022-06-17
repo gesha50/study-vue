@@ -2,7 +2,7 @@ const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
   transpileDependencies: ["quasar"],
 
-  outputDir: "build",
+  outputDir: "docs",
 
   devServer: {
     proxy: "http://151.248.114.103/",
