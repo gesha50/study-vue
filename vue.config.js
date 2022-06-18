@@ -1,7 +1,7 @@
 const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
   transpileDependencies: ["quasar"],
-
+  // publicPath: process.env.NODE_ENV === "production" ? "/study-vue/" : "/",
   outputDir: "docs",
 
   devServer: {
@@ -12,6 +12,11 @@ module.exports = defineConfig({
     quasar: {
       importStrategy: "kebab",
       rtlSupport: true,
+    },
+  },
+  pwa: {
+    workboxOptions: {
+      exclude: [/_redirects/],
     },
   },
 });
