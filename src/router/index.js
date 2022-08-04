@@ -27,11 +27,6 @@ const routes = [
     name: "book",
     component: () => import("../views/BookView.vue"),
   },
-  {
-    path: "/example",
-    name: "example",
-    component: () => import("../views/ExampleTS.vue"),
-  },
 ];
 
 const router = createRouter({

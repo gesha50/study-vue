@@ -2,7 +2,6 @@
   <div class="about">
     <SearchBooks
       :search-text="searchText"
-      @clean="clean"
       @change-text="changeText"
     ></SearchBooks>
     <h1>Список авторов</h1>
@@ -39,10 +38,6 @@ const filteredAuthors = computed(() => {
   }
   return authors.value;
 });
-
-function clean() {
-  searchText.value = "";
-}
 
 function changeText(val) {
   searchText.value = val;

@@ -13,7 +13,6 @@
     </q-btn>
     <SearchBooks
       :search-text="searchText"
-      @clean="clean"
       @change-text="changeText"
     ></SearchBooks>
     <h1 class="text-3xl font-bold underline">Книги</h1>
@@ -35,9 +34,12 @@ import getBook from "@/services/getBooks";
 
 const { booksFromServer } = getBook();
 const searchText = ref("");
-let books = store.getters["getBooks"].length
-  ? ref(store.getters["getBooks"])
-  : ref([]);
+let books = computed(() => {
+  if (store.getters["getBooks"].length) {
+    return store.getters["getBooks"];
+  }
+  return [];
+});
 function changeText(val): void {
   searchText.value = val;
 }
@@ -50,9 +52,6 @@ const filteredBooks = computed(() => {
   }
   return books.value;
 });
-function clean(): void {
-  searchText.value = "";
-}
 
 // function auth() {
 //   axios

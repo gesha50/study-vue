@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex">
+  <div class="flex flex-center q-my-lg">
     <input
       id="inputSearch"
       class="outline hover:outline-dashed"
@@ -13,7 +13,7 @@
       v-if="searchText.length"
       id="clean"
       style="margin-left: 5px; cursor: pointer"
-      @click="$emit('clean')"
+      @click="$emit('changeText', '')"
     >
       x
     </div>
@@ -23,7 +23,7 @@
 <script setup>
 import { defineEmits, defineProps } from "vue";
 
-defineEmits(["clean", "changeText"]);
+defineEmits(["changeText"]);
 
 defineProps({
   searchText: {

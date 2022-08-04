@@ -4,7 +4,7 @@
     <q-form @submit="onSubmit" @reset="onReset">
       <div class="row">
         <q-input
-          v-model="title"
+          v-model="book.title"
           filled
           label="Your title *"
           class="q-pl-md col-6"
@@ -12,7 +12,7 @@
           :rules="[(val) => (val && val.length > 0) || 'Please type something']"
         />
         <q-input
-          v-model="ISBN"
+          v-model="book.ISBN"
           filled
           type="text"
           label="Your ISBN *"
@@ -23,7 +23,7 @@
           ]"
         />
         <q-input
-          v-model="author"
+          v-model="book.author"
           filled
           type="text"
           label="Author *"
@@ -34,7 +34,7 @@
           ]"
         />
         <q-input
-          v-model="description"
+          v-model="book.description"
           filled
           type="text"
           label="Book description"
@@ -42,7 +42,7 @@
           lazy-rules
         />
         <q-input
-          v-model="category"
+          v-model="book.category"
           filled
           type="text"
           label="Book category *"
@@ -53,7 +53,7 @@
           ]"
         />
         <q-input
-          v-model="price"
+          v-model="book.price"
           filled
           type="number"
           label="Book price *"
@@ -64,7 +64,7 @@
             (val) => (val > 0 && val < 1000000) || 'Please type a real price',
           ]"
         />
-        <q-file v-model="image" class="q-pl-md" outlined>
+        <q-file v-model="book.image" class="q-pl-md" outlined>
           <template #prepend>
             <q-icon name="attach_file" />
           </template>
@@ -86,32 +86,34 @@
 
 <script setup>
 import { useQuasar } from "quasar";
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import store from "@/store";
 import { useRouter } from "vue-router";
 
 const $q = useQuasar();
-const title = ref(null);
-const ISBN = ref(Math.random().toString(16).slice(2));
-const author = ref(null);
-const image = ref(null);
-const description = ref(null);
-const category = ref(null);
-const price = ref(null);
+const book = reactive({
+  title: null,
+  ISBN: Math.random().toString(16).slice(2),
+  author: null,
+  image: null,
+  description: null,
+  category: null,
+  price: null,
+});
 const isCorrectData = ref(true);
 const router = useRouter();
 
 function onSubmit() {
   if (isCorrectData.value) {
     let objBook = {
-      id: ISBN.value,
-      title: title.value,
-      ISBN: ISBN.value,
-      author: author.value,
+      id: book.ISBN,
+      title: book.title,
+      ISBN: book.ISBN,
+      author: book.author,
       image: "",
-      description: description.value,
-      category: category.value,
-      price: price.value,
+      description: book.description,
+      category: book.category,
+      price: book.price,
     };
     store.dispatch("addBook", objBook);
     $q.notify({
@@ -132,13 +134,13 @@ function onSubmit() {
 }
 
 function onReset() {
-  title.value = null;
-  ISBN.value = null;
-  author.value = null;
-  image.value = null;
-  description.value = null;
-  category.value = null;
-  price.value = null;
+  book.title = null;
+  book.ISBN = null;
+  book.author = null;
+  book.image = null;
+  book.description = null;
+  book.category = null;
+  book.price = null;
 }
 </script>
 
