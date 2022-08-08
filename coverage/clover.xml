@@ -1,22 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1653641725593" clover="3.2.0">
-  <project timestamp="1653641725593" name="All files">
-    <metrics statements="13" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="3" elements="19" coveredelements="10" complexity="0" loc="13" ncloc="13" packages="1" files="1" classes="1"/>
-    <file name="index.ts" path="/Users/gesha/Desktop/www/study-vue/src/store/index.ts">
-      <metrics statements="13" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="3"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="2" count="1" type="stmt"/>
-      <line num="5" count="1" type="stmt"/>
-      <line num="11" count="1" type="stmt"/>
-      <line num="16" count="0" type="stmt"/>
-      <line num="17" count="0" type="stmt"/>
-      <line num="18" count="0" type="stmt"/>
-      <line num="28" count="0" type="stmt"/>
-      <line num="32" count="1" type="stmt"/>
-      <line num="36" count="0" type="stmt"/>
-      <line num="37" count="0" type="stmt"/>
-      <line num="39" count="1" type="stmt"/>
-      <line num="40" count="1" type="stmt"/>
-    </file>
+<coverage generated="1659938359916" clover="3.2.0">
+  <project timestamp="1659938359916" name="All files">
+    <metrics statements="41" coveredstatements="36" conditionals="6" coveredconditionals="5" methods="12" coveredmethods="10" elements="59" coveredelements="51" complexity="0" loc="41" ncloc="41" packages="3" files="3" classes="3"/>
+    <package name="services">
+      <metrics statements="11" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="getBooks.ts" path="/Users/gesha/Desktop/www/study-vue/src/services/getBooks.ts">
+        <metrics statements="11" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="store">
+      <metrics statements="13" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="4"/>
+      <file name="index.ts" path="/Users/gesha/Desktop/www/study-vue/src/store/index.ts">
+        <metrics statements="13" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="11" count="15" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="views">
+      <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+      <file name="HomeView.vue" path="/Users/gesha/Desktop/www/study-vue/src/views/HomeView.vue">
+        <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="36" count="5" type="stmt"/>
+        <line num="37" count="5" type="stmt"/>
+        <line num="38" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="39" count="5" type="stmt"/>
+        <line num="41" count="5" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="46" count="5" type="stmt"/>
+        <line num="47" count="12" type="cond" truecount="1" falsecount="0"/>
+        <line num="48" count="3" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+        <line num="50" count="4" type="stmt"/>
+        <line num="53" count="9" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

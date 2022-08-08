@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.84% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/13</span>
+                <span class='fraction'>10/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.84% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/13</span>
+                <span class='fraction'>10/13</span>
             </div>
         
             
@@ -118,24 +118,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -144,10 +140,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -167,32 +167,32 @@ export default createStore({
     },
   },
   mutations: {
-<span class="fstat-no" title="function not covered" >    setBooks(</span>state, arr: any[]) {
-<span class="cstat-no" title="statement not covered" >      state.</span>books = [];
-<span class="cstat-no" title="statement not covered" >      arr.</span>forEach(<span class="fstat-no" title="function not covered" >(b</span>ook: any, i) =&gt; {
-        const objBook: BookObj = <span class="cstat-no" title="statement not covered" >{</span>
+    setBooks(state, arr: any[]) {
+      state.books = [];
+      arr.forEach((book: any, i) =&gt; {
+        const objBook: BookObj = {
           id: i,
           title: book.volumeInfo.title,
           ISBN: book.volumeInfo.etag,
           author: book.volumeInfo.authors[0],
-          image: book.volumeInfo.imageLinks.thumbnail,
+          image: book.volumeInfo.imageLinks<span class="branch-0 cbranch-no" title="branch not covered" >?.t</span>humbnail,
           description: book.volumeInfo.description,
           category: book.volumeInfo.category,
           price: book.volumeInfo.ratingsCount,
         };
-<span class="cstat-no" title="statement not covered" >        state.</span>books.push(objBook);
+        state.books.push(objBook);
       });
     },
-    addBook(state, obj: BookObj) {
-      state.books.push(obj);
+<span class="fstat-no" title="function not covered" >    addBook(</span>state, obj: BookObj) {
+<span class="cstat-no" title="statement not covered" >      state.</span>books.push(obj);
     },
   },
   actions: {
-<span class="fstat-no" title="function not covered" >    setBooks(</span>{ commit<span class="cstat-no" title="statement not covered" > }, a</span>rr: any[]) {
-<span class="cstat-no" title="statement not covered" >      commit(</span>"setBooks", arr);
+    setBooks({ commit }, arr: any[]) {
+      commit("setBooks", arr);
     },
-    addBook({ commit }, obj: BookObj) {
-      commit("addBook", obj);
+<span class="fstat-no" title="function not covered" >    addBook(</span>{ commit<span class="cstat-no" title="statement not covered" > }, o</span>bj: BookObj) {
+<span class="cstat-no" title="statement not covered" >      commit(</span>"addBook", obj);
     },
   },
   modules: {},
@@ -205,7 +205,7 @@ export default createStore({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri May 27 2022 11:55:25 GMT+0300 (Moscow Standard Time)
+                at Mon Aug 08 2022 08:35:33 GMT+0300 (Moscow Standard Time)
             </div>
         <script src="prettify.js"></script>
         <script>
