@@ -7,7 +7,7 @@ let obj = {
   category: "kjhg",
   price: 1234,
 };
-let volume = {
+let volume1 = {
   volumeInfo: {
     title: "uuu",
     etag: "xdcfgv",
@@ -20,7 +20,20 @@ let volume = {
     ratingsCount: 1234,
   },
 };
-let arr = [volume];
+let volume2 = {
+  volumeInfo: {
+    title: "rain",
+    etag: "xdcfgv",
+    authors: ["oooo"],
+    imageLinks: {
+      thumbnail: "bvcgfhvjb",
+    },
+    description: "vhbjegj",
+    category: "kjhg",
+    ratingsCount: 1234,
+  },
+};
+let arr = [volume1, volume2];
 
 test("check addBook", async () => {
   await store.getters.getBooks;
@@ -30,5 +43,5 @@ test("check addBook", async () => {
 test("check setBooks", async () => {
   await store.dispatch("setBooks", arr);
   expect(store.getters.getBooks === store.state.books).toBeTruthy();
-  expect(store.getters.getBooks.length).toBe(1);
+  expect(store.getters.getBooks.length).toBe(2);
 });
