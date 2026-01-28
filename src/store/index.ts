@@ -15,12 +15,15 @@ export default createStore({
     setBooks(state, arr: any[]) {
       state.books = [];
       arr.forEach((book: any, i) => {
+        console.log(book.volumeInfo);
         const objBook: BookObj = {
           id: i,
           title: book.volumeInfo.title,
           ISBN: book.volumeInfo.etag,
           author: book.volumeInfo.authors[0],
-          image: book.volumeInfo.imageLinks.thumbnail,
+          image: book.volumeInfo.imageLinks
+            ? book.volumeInfo.imageLinks.thumbnail
+            : null,
           description: book.volumeInfo.description,
           category: book.volumeInfo.category,
           price: book.volumeInfo.ratingsCount,

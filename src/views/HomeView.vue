@@ -35,9 +35,8 @@ import getBook from "@/services/getBooks";
 
 const { booksFromServer } = getBook();
 const searchText = ref("");
-let books = store.getters["getBooks"].length
-  ? ref(store.getters["getBooks"])
-  : ref([]);
+let books = computed(() => store.getters["getBooks"]);
+
 function changeText(val): void {
   searchText.value = val;
 }
